@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Гайд СДЭК — инструменты для бизнеса</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --green: #00A859;
+    --green-dark: #007A40;
+    --green-light: #f0fdf7;
+    --green-mid: #e0f7ed;
+    --ink: #111111;
+    --ink-2: #444444;
+    --ink-3: #888888;
+    --bg: #f5f5f3;
+    --white: #ffffff;
+    --border: #e8e8e8;
+    --radius: 14px;
+  }
+
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.6;
+    padding: 2rem 1rem 5rem;
+  }
+
+  .wrap {
+    max-width: 620px;
+    margin: 0 auto;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--green);
+    border-radius: 20px;
+    padding: 2.5rem 2.5rem 2rem;
+    color: #fff;
+    margin-bottom: 1.25rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    right: -30px; bottom: -40px;
+    width: 180px; height: 180px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.07);
+  }
+  .hero-logo {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    background: rgba(255,255,255,0.18);
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 99px;
+    margin-bottom: 1.5rem;
+  }
+  .hero-eyebrow {
+    font-size: 13px;
+    opacity: 0.75;
+    margin-bottom: 8px;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+  }
+  .hero-title {
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 14px;
+    letter-spacing: -0.5px;
+  }
+  .hero-title em {
+    font-style: normal;
+    text-decoration: underline;
+    text-decoration-color: rgba(255,255,255,0.45);
+    text-underline-offset: 4px;
+  }
+  .hero-sub {
+    font-size: 15px;
+    opacity: 0.85;
+    line-height: 1.6;
+    max-width: 440px;
+  }
+
+  /* ── PAIN STRIP ── */
+  .pain-strip {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    margin-bottom: 1.25rem;
+    border: 1px solid var(--border);
+  }
+  .pain-strip-title {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.8px;
+    color: var(--ink-3);
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+  .pain-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .pain-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 14px;
+    color: var(--ink-2);
+    line-height: 1.5;
+  }
+  .pain-icon {
+    font-size: 16px;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  /* ── SECTION LABEL ── */
+  .section-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: var(--green);
+    text-transform: uppercase;
+    margin: 2rem 0 0.75rem;
+  }
+
+  /* ── TOOL CARD ── */
+  .tool-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    margin-bottom: 10px;
+    border: 1px solid var(--border);
+    transition: border-color 0.15s;
+  }
+  .tool-card:hover { border-color: #c0e8d5; }
+
+  .tool-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    margin-bottom: 10px;
+  }
+  .tool-emoji {
+    font-size: 26px;
+    flex-shrink: 0;
+    line-height: 1;
+    margin-top: 2px;
+  }
+  .tool-name {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 2px;
+  }
+  .tool-tag {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--green-dark);
+    background: var(--green-mid);
+    padding: 2px 9px;
+    border-radius: 99px;
+    display: inline-block;
+  }
+  .tool-body {
+    font-size: 14px;
+    color: var(--ink-2);
+    line-height: 1.65;
+    margin-bottom: 12px;
+  }
+  .tool-solve {
+    font-size: 13px;
+    color: var(--green-dark);
+    background: var(--green-light);
+    border-radius: 8px;
+    padding: 8px 12px;
+    display: flex;
+    gap: 6px;
+    align-items: flex-start;
+  }
+  .tool-solve-icon { flex-shrink: 0; }
+
+  /* ── HIGHLIGHT CARD ── */
+  .highlight {
+    background: var(--ink);
+    border-radius: var(--radius);
+    padding: 1.75rem;
+    color: #fff;
+    margin: 1.5rem 0 1.25rem;
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+  .highlight-icon { font-size: 28px; flex-shrink: 0; }
+  .highlight-title { font-size: 16px; font-weight: 600; margin-bottom: 6px; }
+  .highlight-text { font-size: 14px; opacity: 0.8; line-height: 1.6; }
+
+  /* ── CTA ── */
+  .cta-block {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 2rem;
+    text-align: center;
+    border: 1px solid var(--border);
+    margin-top: 1.25rem;
+  }
+  .cta-title { font-size: 19px; font-weight: 700; margin-bottom: 8px; }
+  .cta-sub { font-size: 14px; color: var(--ink-3); margin-bottom: 1.5rem; line-height: 1.6; }
+  .cta-btn {
+    display: inline-block;
+    background: var(--green);
+    color: #fff;
+    font-size: 15px;
+    font-weight: 600;
+    padding: 12px 32px;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: background 0.15s;
+  }
+  .cta-btn:hover { background: var(--green-dark); }
+  .cta-note { font-size: 12px; color: var(--ink-3); margin-top: 10px; }
+
+  /* ── FOOTER ── */
+  .footer {
+    text-align: center;
+    margin-top: 2rem;
+    font-size: 12px;
+    color: var(--ink-3);
+    line-height: 1.7;
+  }
+
+  @media (max-width: 480px) {
+    .hero { padding: 2rem 1.5rem 1.75rem; }
+    .hero-title { font-size: 22px; }
+    .highlight { flex-direction: column; gap: 10px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-logo">СДЭК</div>
+    <div class="hero-eyebrow">Гайд для вашего бизнеса</div>
+    <div class="hero-title">А вы точно <em>экономите</em><br>на доставке?</div>
+    <div class="hero-sub">Собрали инструменты СДЭК, которые уже помогают бизнесу отправлять быстрее, дешевле и без головной боли — возможно, часть из них вы ещё не используете.</div>
+  </div>
+
+  <!-- БОЛИ -->
+  <div class="pain-strip">
+    <div class="pain-strip-title">Узнаёте себя?</div>
+    <div class="pain-list">
+      <div class="pain-item"><span class="pain-icon">😤</span>Каждый заказ вбиваете вручную — и это съедает часы</div>
+      <div class="pain-item"><span class="pain-icon">📦</span>Клиент не понимает, где его посылка, и пишет вам</div>
+      <div class="pain-item"><span class="pain-icon">💸</span>Платите за доставку больше, чем могли бы</div>
+      <div class="pain-item"><span class="pain-icon">🔄</span>Возвраты — отдельный кошмар без системы</div>
+      <div class="pain-item"><span class="pain-icon">🌍</span>Хотите в СНГ, но не знаете с чего начать</div>
+    </div>
+  </div>
+
+  <!-- ИНСТРУМЕНТЫ -->
+  <div class="section-label">Инструменты СДЭК</div>
+
+  <div class="tool-card">
+    <div class="tool-header">
+      <div class="tool-emoji">🖥️</div>
+      <div>
+        <div class="tool-name">Личный кабинет и API-интеграция</div>
+        <span class="tool-tag">Автоматизация</span>
+      </div>
+    </div>
+    <div class="tool-body">Создавайте накладные в пару кликов, отслеживайте все отправки в одном окне. Если у вас интернет-магазин — подключите API и заявки будут уходить в СДЭК автоматически, без ручного ввода.</div>
+    <div class="tool-solve"><span class="tool-solve-icon">✓</span>Избавит от: ручной обработки заказов и потери времени на рутину</div>
+  </div>
+
+  <div class="tool-card">
+    <div class="tool-header">
+      <div class="tool-emoji">📍</div>
+      <div>
+        <div class="tool-name">Сеть ПВЗ и постаматы</div>
+        <span class="tool-tag">Удобство для клиента</span>
+      </div>
+    </div>
+    <div class="tool-body">Более 20 000 пунктов выдачи по России и СНГ. Ваш клиент сам выбирает удобное место и время — без ожидания курьера дома. Меньше отказов от заказа, выше выкупаемость.</div>
+    <div class="tool-solve"><span class="tool-solve-icon">✓</span>Поможет с: невыкупом и жалобами клиентов на неудобство получения</div>
+  </div>
+
+  <div class="tool-card">
+    <div class="tool-header">
+      <div class="tool-emoji">💰</div>
+      <div>
+        <div class="tool-name">Тарифы «Посылка» и «Эконом»</div>
+        <span class="tool-tag">Снижение затрат</span>
+      </div>
+    </div>
+    <div class="tool-body">Если скорость не критична — отправляйте по сниженному тарифу. Подходит для плановых отправок, крупногабаритных товаров и регулярных маршрутов. Экономия ощутима при объёме от 50 отправок в месяц.</div>
+    <div class="tool-solve"><span class="tool-solve-icon">✓</span>Поможет с: снижением затрат на доставку без потери качества</div>
+  </div>
+
+  <div class="tool-card">
+    <div class="tool-header">
+      <div class="tool-emoji">🔔</div>
+      <div>
+        <div class="tool-name">SMS и email-уведомления для получателей</div>
+        <span class="tool-tag">Сервис</span>
+      </div>
+    </div>
+    <div class="tool-body">СДЭК автоматически уведомляет вашего клиента о каждом этапе доставки. Он знает, где посылка — и не пишет вам с вопросом «ну когда же?». Вы экономите время на поддержку.</div>
+    <div class="tool-solve"><span class="tool-solve-icon">✓</span>Поможет с: потоком входящих от клиентов о статусе заказа</div>
+  </div>
+
+  <div class="tool-card">
+    <div class="tool-header">
+      <div class="tool-emoji">🛡️</div>
+      <div>
+        <div class="tool-name">Страхование и объявленная ценность</div>
+        <span class="tool-tag">Защита товара</span>
+      </div>
+    </div>
+    <div class="tool-body">Укажите ценность вложения при отправке — и в случае повреждения или утери вы получите компенсацию. Особенно актуально для хрупких, дорогих или брендовых товаров.</div>
+    <div class="tool-solve"><span class="tool-solve-icon">✓</span>Поможет с: потерями при браке и отсутствием компенсации от перевозчика</div>
+  </div>
+
+  <div class="tool-card">
+    <div class="tool-header">
+      <div class="tool-emoji">🔄</div>
+      <div>
+        <div class="tool-name">Реверсная логистика (возвраты)</div>
+        <span class="tool-tag">Возвраты</span>
+      </div>
+    </div>
+    <div class="tool-body">Организуйте возврат товара от клиента через СДЭК — без звонков и координации вручную. Клиент сдаёт посылку в ближайший ПВЗ, вы получаете её обратно с отслеживанием.</div>
+    <div class="tool-solve"><span class="tool-solve-icon">✓</span>Поможет с: хаосом при возвратах и отсутствием прозрачной системы</div>
+  </div>
+
+  <div class="tool-card">
+    <div class="tool-header">
+      <div class="tool-emoji">🌍</div>
+      <div>
+        <div class="tool-name">Доставка в СНГ и за рубеж</div>
+        <span class="tool-tag">Новые рынки</span>
+      </div>
+    </div>
+    <div class="tool-body">СДЭК работает в Беларуси, Казахстане, Армении, Узбекистане и других странах СНГ. Единый личный кабинет, понятное таможенное оформление, отслеживание на всём пути. Выход на новую аудиторию — без отдельного логистического партнёра.</div>
+    <div class="tool-solve"><span class="tool-solve-icon">✓</span>Поможет с: выходом в СНГ без лишних барьеров и новых партнёров</div>
+  </div>
+
+  <!-- HIGHLIGHT -->
+  <div class="highlight">
+    <div class="highlight-icon">💡</div>
+    <div>
+      <div class="highlight-title">Персональный менеджер — не опция, а стандарт</div>
+      <div class="highlight-text">При работе с нами вы получаете живого менеджера, который знает ваш бизнес. Не колл-центр, не бот — человек, который решает вопросы быстро.</div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-block">
+    <div class="cta-title">Хотите узнать, что подойдёт именно вам?</div>
+    <div class="cta-sub">Пройдите короткий опрос — и мы подготовим персональные рекомендации по сервисам СДЭК под ваш бизнес. Это займёт 2 минуты.</div>
+    <a href="#" class="cta-btn">Пройти опрос →</a>
+    <div class="cta-note">Без спама. После опроса — звонок менеджера в удобное для вас время.</div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    Партнёр СДЭК · Курс 6<br>
+    Если у вас есть вопросы — просто ответьте на это письмо
+  </div>
+
+</div>
+</body>
+</html>
