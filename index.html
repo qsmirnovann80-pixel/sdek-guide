@@ -241,6 +241,121 @@
     line-height: 1.7;
   }
 
+  /* ── DBS SECTION ── */
+  .dbs-banner {
+    background: linear-gradient(135deg, var(--green) 0%, var(--green-dark) 100%);
+    border-radius: var(--radius);
+    padding: 1.75rem;
+    color: #fff;
+    margin: 2rem 0 1rem;
+  }
+  .dbs-banner-tag {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    background: rgba(255,255,255,0.18);
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 99px;
+    margin-bottom: 12px;
+  }
+  .dbs-banner-title {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    line-height: 1.25;
+  }
+  .dbs-banner-sub {
+    font-size: 14px;
+    opacity: 0.9;
+    line-height: 1.55;
+  }
+
+  .dbs-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 1.5rem;
+  }
+  .dbs-stat-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px;
+    text-align: center;
+  }
+  .dbs-stat-num {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--green-dark);
+  }
+  .dbs-stat-label {
+    font-size: 12px;
+    color: var(--ink-3);
+    margin-top: 2px;
+  }
+
+  .dbs-compare {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+    font-size: 13px;
+  }
+  .dbs-compare th {
+    background: var(--green-light);
+    color: var(--green-dark);
+    font-weight: 600;
+    padding: 10px 12px;
+    text-align: left;
+  }
+  .dbs-compare td {
+    padding: 10px 12px;
+    border-top: 1px solid var(--border);
+    color: var(--ink-2);
+    vertical-align: top;
+  }
+  .dbs-compare td:first-child {
+    font-weight: 600;
+    color: var(--ink);
+    white-space: nowrap;
+  }
+
+  .dbs-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 1rem;
+  }
+  .dbs-step {
+    background: var(--ink);
+    border-radius: 10px;
+    padding: 12px 14px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .dbs-step-num {
+    width: 26px; height: 26px;
+    background: var(--green);
+    color: #fff;
+    border-radius: 50%;
+    font-size: 13px;
+    font-weight: 700;
+    flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .dbs-step-text { font-size: 13px; color: rgba(255,255,255,0.9); }
+  .dbs-step-text b { color: #fff; }
+
+  @media (max-width: 480px) {
+    .dbs-compare { font-size: 12px; }
+    .dbs-compare th, .dbs-compare td { padding: 8px; }
+  }
+
   @media (max-width: 480px) {
     .hero { padding: 2rem 1.5rem 1.75rem; }
     .hero-title { font-size: 22px; }
@@ -356,6 +471,88 @@
     </div>
     <div class="tool-body">СДЭК работает в Беларуси, Казахстане, Армении, Узбекистане и других странах СНГ. Единый личный кабинет, понятное таможенное оформление, отслеживание на всём пути. Выход на новую аудиторию — без отдельного логистического партнёра.</div>
     <div class="tool-solve"><span class="tool-solve-icon">✓</span>Поможет с: выходом в СНГ без лишних барьеров и новых партнёров</div>
+  </div>
+
+  <!-- DBS SECTION -->
+  <div class="dbs-banner">
+    <div class="dbs-banner-tag">ДЛЯ СЕЛЛЕРОВ МАРКЕТПЛЕЙСОВ</div>
+    <div class="dbs-banner-title">Продаёте на Wildberries, Ozon или Авито? Сохраните контроль над доставкой через DBS</div>
+    <div class="dbs-banner-sub">Delivery by Seller — маркетплейс остаётся витриной, а доставку и сроки контролируете вы сами через СДЭК.</div>
+  </div>
+
+  <div class="dbs-stats">
+    <div class="dbs-stat-card">
+      <div class="dbs-stat-num">98%</div>
+      <div class="dbs-stat-label">выкуп товаров — защита рейтинга на маркетплейсе</div>
+    </div>
+    <div class="dbs-stat-card">
+      <div class="dbs-stat-num">5 293</div>
+      <div class="dbs-stat-label">пунктов выдачи по всей стране</div>
+    </div>
+    <div class="dbs-stat-card">
+      <div class="dbs-stat-num">54 000+</div>
+      <div class="dbs-stat-label">направлений доставки</div>
+    </div>
+    <div class="dbs-stat-card">
+      <div class="dbs-stat-num">0,75%</div>
+      <div class="dbs-stat-label">страховка от заявленной стоимости товара</div>
+    </div>
+  </div>
+
+  <table class="dbs-compare">
+    <tr>
+      <th>Параметр</th>
+      <th>FBO / FBS</th>
+      <th>DBS от СДЭК</th>
+    </tr>
+    <tr>
+      <td>Затраты</td>
+      <td>Доставка до МП + склад + тайм-слоты + доставка покупателю</td>
+      <td>Только логистика до покупателя + сервисный сбор МП</td>
+    </tr>
+    <tr>
+      <td>Сроки</td>
+      <td>Определяет маркетплейс</td>
+      <td>Определяете вы сами</td>
+    </tr>
+    <tr>
+      <td>Упаковка</td>
+      <td>По правилам маркетплейса</td>
+      <td>По вашим стандартам</td>
+    </tr>
+    <tr>
+      <td>Зоны доставки</td>
+      <td>Ограничены МП</td>
+      <td>Полностью под вашим контролем</td>
+    </tr>
+    <tr>
+      <td>Страхование</td>
+      <td>Недоступно, сложно доказать вину МП</td>
+      <td>0,75% от стоимости — СДЭК компенсирует при своей вине</td>
+    </tr>
+  </table>
+
+  <div class="dbs-steps">
+    <div class="dbs-step">
+      <div class="dbs-step-num">1</div>
+      <div class="dbs-step-text"><b>Подписать договор с СДЭК</b> — на интернет-магазин, подходит для ИП и юрлиц</div>
+    </div>
+    <div class="dbs-step">
+      <div class="dbs-step-num">2</div>
+      <div class="dbs-step-text"><b>Создать DBS-кабинет на МП</b> — выбрать схему DBS на нужных площадках</div>
+    </div>
+    <div class="dbs-step">
+      <div class="dbs-step-num">3</div>
+      <div class="dbs-step-text"><b>Подключить интеграцию</b> — ЛК СДЭК свяжется с ЛК маркетплейса автоматически</div>
+    </div>
+    <div class="dbs-step">
+      <div class="dbs-step-num">4</div>
+      <div class="dbs-step-text"><b>Напечатать накладную</b> — после первого заказа она создаётся сама</div>
+    </div>
+    <div class="dbs-step">
+      <div class="dbs-step-num">5</div>
+      <div class="dbs-step-text"><b>Сдать посылку в СДЭК</b> — в ближайший ПВЗ или вызвать курьера на склад</div>
+    </div>
   </div>
 
   <!-- HIGHLIGHT -->
